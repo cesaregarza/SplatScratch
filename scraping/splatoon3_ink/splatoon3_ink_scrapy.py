@@ -1,7 +1,9 @@
-import os
 import json
-import scrapy
+import os
 from urllib.parse import urlparse
+
+import scrapy
+
 
 def get_filename_path(url: str) -> tuple[str, str]:
     filename = os.path.basename(urlparse(url).path)
@@ -11,6 +13,7 @@ def get_filename_path(url: str) -> tuple[str, str]:
         directory += "/xrank"
     path = f"{directory}/{filename}"
     return path, directory
+
 
 class JsonDownloadSpider(scrapy.Spider):
     name = "jsondownload"
